@@ -8,10 +8,11 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-        features = "classpath:Login.feature",
+        features = "classpath:Registration.feature",
         glue = "stepDefinitions",
         monochrome = true,
         dryRun = false,
+        strict = true,
         plugin = {"pretty",
                 "html:target/cucumber-htmlreport",
                 "json:target/cucumber-report.json",
@@ -21,5 +22,5 @@ import org.junit.runner.RunWith;
 
 
 )
-public class LoginTestRunner {
+public class LoginTestRunner { 
 }
