@@ -8,11 +8,13 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-        features = "classpath:Registration.feature",
+        features = "classpath:",
         glue = "stepDefinitions",
         monochrome = true,
         dryRun = false,
         strict = true,
+
+        tags = {"@Smoke"},
         plugin = {"pretty",
                 "html:target/cucumber-htmlreport",
                 "json:target/cucumber-report.json",

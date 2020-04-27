@@ -1,4 +1,4 @@
-Feature: Login
+Feature: Login Page
   
   Scenario : Successful login with registered credentials
     Given Open Application as "http://automationpractice.com/index.php"
@@ -57,7 +57,7 @@ Feature: Login
     And Error message for wrong password is "Authentication failed."
     And close browser
 
-  Scenario: Verify the Functionality of reset password
+  Scenario: Verify the Functionality of reset password whit invalid email address
     Given Open Application as "http://automationpractice.com/index.php"
     And User verify page title"My Store"
     And User click sign in button
