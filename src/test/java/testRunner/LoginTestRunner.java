@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         dryRun = false,
         strict = true,
 
-        tags = {"@Smoke"},
+       // tags = {"@Smoke"},
         plugin = {"pretty",
                 "html:target/cucumber-htmlreport",
                 "json:target/cucumber-report.json",
