@@ -4,7 +4,7 @@ Feature: Registration Page
     Given Open Application as "http://automationpractice.com/index.php"
     And User verify page title"My Store"
     And User click sign in button
-    When User enters create an account EmailAddress filed as"samkitjain122@gmail.com"
+    When User enters create an account EmailAddress filed as"samkitjain12@gmail.com"
 
   @Smoke
   Scenario: Validate message for all mandatory fields
@@ -48,7 +48,7 @@ Feature: Registration Page
 
   Scenario: Validate email filed on registration page
     Given Registration Page
-    And Email id should display which enter while registration as "samkitjain122@gmail.com"
+    And Email id should display which enter while registration as "samkitjain12@gmail.com"
     And Clear email field on registration page
     When User enter already registered email id as "samkitjain2992@gmail.com"
     And Click on Register button
@@ -109,7 +109,7 @@ Feature: Registration Page
     Then close browser
     Examples:
       | firstName | lastName | emailId                 | password   | address             | City | State | zipCode | Country | mobilePhone |
-      | Samkit    | jain     | samkitjain122@gmail.com | samkitjain | 101,12smkith nakd a | Pune | 2     | 04048   | 21      | 9691777815  |
+      | Samkit    | jain     | samkitjain12@gmail.com | samkitjain | 101,12smkith nakd a | Pune | 2     | 04048   | 21      | 9691777815  |
 
 
     
