@@ -147,7 +147,7 @@ public class RegistrationSD {
     public void userGiveDOBAsCurrantDate() {
         dh=new DateHelper();
         String getTodayDate= dh.getTodayDate();
-        String date[]=getTodayDate.split("/");
+        String[] date =getTodayDate.split("/");
         cp.SetDOB(date[0],date[1],date[2].trim());
     }
 
