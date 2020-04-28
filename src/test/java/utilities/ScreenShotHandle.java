@@ -14,6 +14,6 @@ public class ScreenShotHandle {
     public static void tackScreenShot(WebDriver driver,String filename) throws IOException {
         File file=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(file, new File("C:\\Users\\Shweta Jain\\Desktop\\Project\\CucumberFramework\\" +
-                "+src\\test\\java"+filename+".jpg"));
+                "+src\\test\\java\\screenShot"+filename+".jpg"));
     }
 }
