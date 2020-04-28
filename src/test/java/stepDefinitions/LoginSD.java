@@ -7,6 +7,7 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 import pageObjects.LoginPage;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class LoginSD  {
@@ -45,7 +46,7 @@ public class LoginSD  {
 
 
     @When("^Click on login button$")
-    public void click_on_login_button() {
+    public void click_on_login_button() throws IOException {
         lp.clickSignInButton();
 
     }
@@ -74,7 +75,7 @@ public class LoginSD  {
 
     }
     @And("^Error message for unregistered credential is \"([^\"]*)\"$")
-    public void errorMessageForUnregisteredCredentialIs(String message) {
+    public void errorMessageForUnregisteredCredentialIs(String message) throws IOException {
         //Assert.assertEquals(message, lp.getErrorMessageForUnRegisteredUser());
          Assert.assertTrue(lp.getErrorMessageForUnRegisteredUser().contains(message));
 	 }
