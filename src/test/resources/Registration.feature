@@ -109,7 +109,7 @@ Feature: Registration Page
     Then close browser
     Examples:
       | firstName | lastName | emailId                 | password   | address             | City | State | zipCode | Country | mobilePhone |
-      | Samkit    | jain     | samkitjain12@gmail.com | samkitjain | 101,12smkith nakd a | Pune | 2     | 04048   | 21      | 9691777815  |
+      | Samkit    | jain     | samkitjain12@gmail.com | samkitjain | 101,12sudama nagar  | Pune | 2     | 04048   | 21      | 9691777815  |
 
 
     
