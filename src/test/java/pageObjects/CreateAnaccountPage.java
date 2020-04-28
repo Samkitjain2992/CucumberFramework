@@ -31,7 +31,7 @@ public class CreateAnaccountPage {
     @FindBy(xpath = "//input[@id='customer_firstname']")
     WebElement textFirstName;
 
-    @FindBy(xpath = "//button[@id='submitAccount']")
+    @FindBy(id = "submitAccount")
     WebElement buttonRegister;
 
     @FindBy(xpath = "//div[@class='alert alert-danger']/ol/li[3]")
@@ -106,10 +106,10 @@ public class CreateAnaccountPage {
 
 
     public void setTextEmailCreateAnAccount(String email) {
-        String name="Samkit" + UUID.randomUUID().toString().split("-")[0];
-        name =name+email;
+//        String name="Samkit" + UUID.randomUUID().toString().split("-")[0];
+//        name =name+email;
 
-        textEmailCreateAnAccount.sendKeys(name);
+        textEmailCreateAnAccount.sendKeys(email);
     }
 
     public void clickCreateAnAccountButton() {
@@ -120,11 +120,11 @@ public class CreateAnaccountPage {
         textFirstName.sendKeys(firstName);
     }
 
-    public void clickRegisterButton() throws IOException {
-    	WaitHelper.WaitForElement(BaseClass.driver,buttonRegister,10);
+    public void clickRegisterButton()  {
+    	WaitHelper.WaitForElement(BaseClass.driver,buttonRegister,5);
 
         buttonRegister.click();
-        screenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
+        //screenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
     }
 
     public String getErrorMessageForFirstName() {

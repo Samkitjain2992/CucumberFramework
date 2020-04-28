@@ -12,6 +12,7 @@ import utilities.DateHelper;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 public class RegistrationSD {
 
@@ -38,7 +39,7 @@ public class RegistrationSD {
     }
 
     @And("^Click on Register button$")
-    public void userClickOnRegisterButton() throws IOException {
+    public void userClickOnRegisterButton() {
         cp.clickRegisterButton();
     }
 
@@ -68,6 +69,7 @@ public class RegistrationSD {
 
     @And("^Email id should display which enter while registration as \"([^\"]*)\"$")
     public void emailIdShouldDisplayWhichEnterWhileRegistrationAs(String message) throws InterruptedException {
+
 
        Assert.assertEquals(message,cp.emailId());
     }
@@ -226,10 +228,10 @@ public class RegistrationSD {
     }
 
 
-    @And("^Verify user account page title as \"([^\"]*)\"$")
-    public void verifyUserAccountPageTitleAs(String title)  {
-        Assert.assertEquals(title,BaseClass.driver.getTitle());
-
-    }
+//    @And("^Verify user account page title as \"([^\"]*)\"$")
+//    public void verifyUserAccountPageTitleAs(String title)  {
+//        Assert.assertEquals(title,BaseClass.driver.getTitle());
+//
+//    }
 }
 
