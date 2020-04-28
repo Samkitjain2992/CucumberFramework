@@ -77,7 +77,8 @@ public class LoginSD  {
     @And("^Error message for unregistered credential is \"([^\"]*)\"$")
     public void errorMessageForUnregisteredCredentialIs(String message) throws IOException {
         //Assert.assertEquals(message, lp.getErrorMessageForUnRegisteredUser());
-         Assert.assertTrue(lp.getErrorMessageForUnRegisteredUser().contains(message));
+        BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+         Assert.assertEquals(message,lp.getErrorMessageForUnRegisteredUser());
 	 }
 
     @And("^Error message for invalid email id is \"([^\"]*)\"$")
