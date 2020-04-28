@@ -9,6 +9,7 @@ import org.junit.Assert;
 import pageObjects.CreateAnaccountPage;
 import utilities.DateHelper;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class RegistrationSD {
     }
 
     @And("^Click on Register button$")
-    public void userClickOnRegisterButton() {
+    public void userClickOnRegisterButton() throws IOException {
         cp.clickRegisterButton();
     }
 
