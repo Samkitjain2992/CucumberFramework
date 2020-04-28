@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import stepDefinitions.BaseClass;
+import utilities.WaitHelper;
 
 import java.util.concurrent.TimeUnit;
 
@@ -92,6 +93,7 @@ public class LoginPage  {
     }
 
     public String getErrorMessageForUnRegisteredUser() {
+    	WaitHelper.WaitForElement(BaseClass.driver,errorMessageForUnRegisteredUser,5);
         return errorMessageForUnRegisteredUser.getText();
     }
 

@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import stepDefinitions.BaseClass;
+import utilities.WaitHelper;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -117,10 +118,12 @@ public class CreateAnaccountPage {
     }
 
     public void clickRegisterButton() {
+    	WaitHelper.WaitForElement(BaseClass.driver,buttonRegister,5);
         buttonRegister.click();
     }
 
     public String getErrorMessageForFirstName() {
+    	
         return errorMessageForFirstName.getText();
     }
 
