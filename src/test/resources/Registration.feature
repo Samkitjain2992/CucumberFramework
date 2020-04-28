@@ -1,13 +1,17 @@
 Feature: Registration Page
 
-  Background: Common login step
+#  Background: Common login step
+#    Given Open Application as "http://automationpractice.com/index.php"
+#    And User verify page title"My Store"
+#    And User click sign in button
+#    When User enters create an account EmailAddress filed as"@gmail.com"
+
+
+  Scenario: Validate message for all mandatory fields
     Given Open Application as "http://automationpractice.com/index.php"
     And User verify page title"My Store"
     And User click sign in button
     When User enters create an account EmailAddress filed as"@gmail.com"
-
-
-  Scenario: Validate message for all mandatory fields
     Given Registration Page
     And Click on Register button
     When Validate all mandatory message
