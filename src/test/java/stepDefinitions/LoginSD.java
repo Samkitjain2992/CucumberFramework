@@ -47,6 +47,7 @@ public class LoginSD  {
 
     @When("^Click on login button$")
     public void click_on_login_button() throws IOException {
+	     BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         lp.clickSignInButton();
 
     }
