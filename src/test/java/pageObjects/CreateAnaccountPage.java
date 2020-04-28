@@ -101,7 +101,10 @@ public class CreateAnaccountPage {
 
 
     public void setTextEmailCreateAnAccount(String email) {
-        textEmailCreateAnAccount.sendKeys(email);
+        String name="Samkit" + UUID.randomUUID().toString().split("-")[0];
+        name =name+email;
+
+        textEmailCreateAnAccount.sendKeys(name);
     }
 
     public void clickCreateAnAccountButton() {
