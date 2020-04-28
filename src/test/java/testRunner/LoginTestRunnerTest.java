@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-        features = "classpath:",
+        features = "classpath:Registration.feature",
         glue = "stepDefinitions",
         monochrome = true,
         dryRun = false,
