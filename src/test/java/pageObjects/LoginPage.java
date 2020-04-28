@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class LoginPage  {
+    ScreenShotHandle screenShotHandle=new ScreenShotHandle();
 
 
     public LoginPage() {
@@ -82,9 +83,9 @@ public class LoginPage  {
     }
 
     public void clickSignInButton() throws IOException {
-        WaitHelper.WaitForElement(BaseClass.driver,btnSignin,5);
+        WaitHelper.WaitForElement(BaseClass.driver,btnSignin,10);
         btnSignin.click();
-        ScreenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
+        screenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
     }
 
     public String pageTitle() {
@@ -97,8 +98,8 @@ public class LoginPage  {
     }
 
     public String getErrorMessageForUnRegisteredUser() throws IOException {
-    	WaitHelper.WaitForElement(BaseClass.driver,errorMessageForUnRegisteredUser,5);
-        ScreenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
+    	WaitHelper.WaitForElement(BaseClass.driver,errorMessageForUnRegisteredUser,10);
+       screenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
         return errorMessageForUnRegisteredUser.getText();
 
     }

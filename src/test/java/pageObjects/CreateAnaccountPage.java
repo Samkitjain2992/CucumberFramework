@@ -15,6 +15,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 public class CreateAnaccountPage {
+    ScreenShotHandle screenShotHandle=new ScreenShotHandle();
 
     public CreateAnaccountPage() {
 
@@ -120,9 +121,10 @@ public class CreateAnaccountPage {
     }
 
     public void clickRegisterButton() throws IOException {
-    	WaitHelper.WaitForElement(BaseClass.driver,buttonRegister,5);
-        ScreenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
+    	WaitHelper.WaitForElement(BaseClass.driver,buttonRegister,10);
+
         buttonRegister.click();
+        screenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
     }
 
     public String getErrorMessageForFirstName() {
