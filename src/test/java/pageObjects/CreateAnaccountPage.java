@@ -5,8 +5,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import stepDefinitions.BaseClass;
+import utilities.ScreenShotHandle;
 import utilities.WaitHelper;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
@@ -117,8 +119,9 @@ public class CreateAnaccountPage {
         textFirstName.sendKeys(firstName);
     }
 
-    public void clickRegisterButton() {
+    public void clickRegisterButton() throws IOException {
     	WaitHelper.WaitForElement(BaseClass.driver,buttonRegister,5);
+        ScreenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
         buttonRegister.click();
     }
 

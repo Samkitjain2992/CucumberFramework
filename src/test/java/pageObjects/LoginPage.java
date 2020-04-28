@@ -4,8 +4,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import stepDefinitions.BaseClass;
+import utilities.ScreenShotHandle;
 import utilities.WaitHelper;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class LoginPage  {
@@ -79,8 +81,10 @@ public class LoginPage  {
         textPassword.sendKeys(password);
     }
 
-    public void clickSignInButton() {
+    public void clickSignInButton() throws IOException {
+        WaitHelper.WaitForElement(BaseClass.driver,btnSignin,5);
         btnSignin.click();
+        ScreenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
     }
 
     public String pageTitle() {
@@ -92,9 +96,11 @@ public class LoginPage  {
         btnSignout.click();
     }
 
-    public String getErrorMessageForUnRegisteredUser() {
+    public String getErrorMessageForUnRegisteredUser() throws IOException {
     	WaitHelper.WaitForElement(BaseClass.driver,errorMessageForUnRegisteredUser,5);
+        ScreenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
         return errorMessageForUnRegisteredUser.getText();
+
     }
 
     public String getErrorMessageForInvalidEmailId() {
