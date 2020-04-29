@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -121,9 +122,10 @@ public class CreateAnaccountPage {
     }
 
     public void clickRegisterButton()  {
-    	WaitHelper.WaitForElement(BaseClass.driver,buttonRegister,5);
-
-        buttonRegister.click();
+    	//WaitHelper.WaitForElement(BaseClass.driver,buttonRegister,5);
+        JavascriptExecutor js=(JavascriptExecutor)BaseClass.driver;
+        js.executeScript("arguments[0].click()",buttonRegister);
+        //buttonRegister.click();
         //screenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
     }
 

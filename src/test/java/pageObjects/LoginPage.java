@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -83,8 +84,10 @@ public class LoginPage  {
     }
 
     public void clickSignInButton() throws IOException {
-        WaitHelper.WaitForElement(BaseClass.driver,btnSignin,10);
-        btnSignin.click();
+        //WaitHelper.WaitForElement(BaseClass.driver,btnSignin,10);
+        JavascriptExecutor js=(JavascriptExecutor)BaseClass.driver;
+        js.executeScript("arguments[0].click()",btnSignin);
+       // btnSignin.click();
         screenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
     }
 
@@ -119,7 +122,9 @@ public class LoginPage  {
         clearEmailIdAddressBox.clear();
     }
     public void clickForgetPassword(){
-        forgetPasswordButton.click();
+        JavascriptExecutor js=(JavascriptExecutor)BaseClass.driver;
+        js.executeScript("arguments[0].click()",forgetPasswordButton);
+//        forgetPasswordButton.click();
     }
     public void setTextEmailBox(String email){
         emailTextBox.sendKeys(email);
