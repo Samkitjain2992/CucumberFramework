@@ -11,8 +11,8 @@ import utilities.WaitHelper;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class LoginPage  {
-    ScreenShotHandle screenShotHandle=new ScreenShotHandle();
+public class LoginPage {
+    ScreenShotHandle screenShotHandle = new ScreenShotHandle();
 
 
     public LoginPage() {
@@ -21,7 +21,7 @@ public class LoginPage  {
     }
 
     @FindBy(xpath = "//a[@title='Log in to your customer account']")
-     WebElement signinButton;
+    WebElement signinButton;
 
     @FindBy(id = "email")
     WebElement textEmail;
@@ -83,12 +83,13 @@ public class LoginPage  {
         textPassword.sendKeys(password);
     }
 
-    public void clickSignInButton() throws IOException {
-        //WaitHelper.WaitForElement(BaseClass.driver,btnSignin,10);
-        JavascriptExecutor js=(JavascriptExecutor)BaseClass.driver;
-        js.executeScript("arguments[0].click()",btnSignin);
-       // btnSignin.click();
-        screenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
+    public void clickSignInButton() throws IOException, InterruptedException {
+        WaitHelper.WaitForElement(BaseClass.driver,btnSignin,10);
+        Thread.sleep(3000);
+        JavascriptExecutor js = (JavascriptExecutor) BaseClass.driver;
+        js.executeScript("arguments[0].click()", btnSignin);
+        // btnSignin.click();
+        screenShotHandle.tackScreenShot(BaseClass.driver, "TestCaseFail");
     }
 
     public String pageTitle() {
@@ -101,8 +102,8 @@ public class LoginPage  {
     }
 
     public String getErrorMessageForUnRegisteredUser() throws IOException {
-    	WaitHelper.WaitForElement(BaseClass.driver,errorMessageForUnRegisteredUser,10);
-       screenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
+        WaitHelper.WaitForElement(BaseClass.driver, errorMessageForUnRegisteredUser, 10);
+        screenShotHandle.tackScreenShot(BaseClass.driver, "TestCaseFail");
         return errorMessageForUnRegisteredUser.getText();
 
     }
@@ -121,21 +122,27 @@ public class LoginPage  {
         BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         clearEmailIdAddressBox.clear();
     }
-    public void clickForgetPassword(){
-        JavascriptExecutor js=(JavascriptExecutor)BaseClass.driver;
-        js.executeScript("arguments[0].click()",forgetPasswordButton);
+
+    public void clickForgetPassword() throws InterruptedException {
+        Thread.sleep(3000);
+        JavascriptExecutor js = (JavascriptExecutor) BaseClass.driver;
+        js.executeScript("arguments[0].click()", forgetPasswordButton);
 //        forgetPasswordButton.click();
     }
-    public void setTextEmailBox(String email){
+
+    public void setTextEmailBox(String email) {
         emailTextBox.sendKeys(email);
     }
-    public void clickRetrievePasswordButton(){
+
+    public void clickRetrievePasswordButton() {
         retrievePasswordButton.click();
     }
-    public String confirmationMessage(){
+
+    public String confirmationMessage() {
         return confirmationMessage.getText();
     }
-    public void clickBackToLoginButton(){
+
+    public void clickBackToLoginButton() {
         backtoLoginButton.click();
     }
 

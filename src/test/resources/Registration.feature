@@ -19,7 +19,7 @@ Feature: Registration Page
 
   Scenario: validate first name filed on registration page
     Given Registration Page
-    When  User enter name as "123"
+    When  User enter name as "1234"
     And Click on Register button
     Then  Error message for invalid first name is "firstname is invalid."
     And Clear name filed
@@ -112,8 +112,8 @@ Feature: Registration Page
 #    And Verify user account page title as "My account - My Store"
     Then close browser
     Examples:
-      | firstName | lastName | emailId                | password   | address            | City | State | zipCode | Country | mobilePhone |
-      | Samkit    | jain     | samkitjain007@gmail.com| samkitjain | 101,12sudama nagar | Pune | 2     | 04048   | 21      | 9691777815  |
+      | firstName | lastName | emailId                 | password   | address            | City | State | zipCode | Country | mobilePhone |
+      | Samkit    | jain     | samkitjain007@gmail.com | samkitjain | 101,12sudama nagar | Pune | 2     | 04048   | 21      | 9691777815  |
 
 
     

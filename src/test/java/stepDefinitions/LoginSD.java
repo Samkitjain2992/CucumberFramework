@@ -10,17 +10,18 @@ import pageObjects.LoginPage;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class LoginSD  {
+public class LoginSD {
 
-	LoginPage lp=null;
-	 @Before(order=2)
-	    public void before_method  (){
-	     lp=new LoginPage();
-	 }
+    LoginPage lp = null;
+
+    @Before(order = 2)
+    public void before_method() {
+        lp = new LoginPage();
+    }
 
     @Given("^Open Application as \"([^\"]*)\"$")
     public void home_page(String Url) {
-    	 BaseClass. driver.get(Url);
+        BaseClass.driver.get(Url);
     }
 
     @Given("^User verify page title\"([^\"]*)\"$")
@@ -46,8 +47,9 @@ public class LoginSD  {
 
 
     @When("^Click on login button$")
-    public void click_on_login_button() throws IOException {
-	     BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+    public void click_on_login_button() throws IOException, InterruptedException {
+        BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Thread.sleep(3000);
         lp.clickSignInButton();
 
     }
@@ -55,10 +57,10 @@ public class LoginSD  {
     @When("^Page Title should be \"([^\"]*)\"$")
     public void page_Title_should_be(String title) {
         if (BaseClass.driver.getPageSource().contains("Login was unsuccessful")) {
-        	BaseClass. driver.close();
+            BaseClass.driver.close();
             Assert.fail();
         } else {
-            Assert.assertEquals(title,BaseClass. driver.getTitle());
+            Assert.assertEquals(title, BaseClass.driver.getTitle());
         }
 
     }
@@ -72,66 +74,68 @@ public class LoginSD  {
 
     @When("^close browser$")
     public void close_browser() {
-       BaseClass.driver.quit();
+        BaseClass.driver.quit();
 
     }
+
     @And("^Error message for unregistered credential is \"([^\"]*)\"$")
     public void errorMessageForUnregisteredCredentialIs(String message) throws IOException {
         //Assert.assertEquals(message, lp.getErrorMessageForUnRegisteredUser());
-        BaseClass.driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-         Assert.assertEquals(message,lp.getErrorMessageForUnRegisteredUser());
-	 }
+        BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Assert.assertEquals(message, lp.getErrorMessageForUnRegisteredUser());
+    }
 
     @And("^Error message for invalid email id is \"([^\"]*)\"$")
     public void errorMessageForInvalidEmailIdIs(String message) {
         Assert.assertTrue(lp.getErrorMessageForInvalidEmailId().contains(message));
         //Assert.assertEquals(message, lp.getErrorMessageForInvalidEmailId());
-        BaseClass. driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	 }
+        BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
 
     @And("^Clear email field$")
     public void clearEmailField() {
-    	BaseClass.  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         lp.clearEmailField();
     }
 
     @And("^Error message for wrong password is \"([^\"]*)\"$")
     public void errorMessageForWrongPasswordIs(String wrongPasswordMessage) {
         Assert.assertTrue(lp.getErrorMessageForWrongPassword().contains(wrongPasswordMessage));
-       // Assert.assertEquals(wrongPasswordMessage, lp.getErrorMessageForWrongPassword(),"error");
-	 }
+        // Assert.assertEquals(wrongPasswordMessage, lp.getErrorMessageForWrongPassword(),"error");
+    }
 
     @And("^User click forgot password button$")
-    public void userClickForgotPasswordButton() {
-     lp.clickForgetPassword();
-	 }
+    public void userClickForgotPasswordButton() throws InterruptedException {
+        Thread.sleep(3000);
+        lp.clickForgetPassword();
+    }
 
 
     @And("^User enter invalid email as \"([^\"]*)\"$")
-    public void userEnterInvalidEmailAs(String email)  {
-	     lp.setTextEmailBox(email);
+    public void userEnterInvalidEmailAs(String email) {
+        lp.setTextEmailBox(email);
 
     }
 
     @And("^Click retrieve password$")
     public void clickRetrievePassword() {
-	     lp.clickRetrievePasswordButton();
-	 }
+        lp.clickRetrievePasswordButton();
+    }
 
     @And("^User enter Valid email as \"([^\"]*)\"$")
-    public void userEnterValidEmailAs(String email)  {
-	     lp.setTextEmailBox(email);
+    public void userEnterValidEmailAs(String email) {
+        lp.setTextEmailBox(email);
 
     }
 
     @And("^Confirmation message for forgot password as\"([^\"]*)\"$")
-    public void confirmationMessageForForgotPasswordAs(String message)  {
+    public void confirmationMessageForForgotPasswordAs(String message) {
         Assert.assertTrue(lp.confirmationMessage().contains(message));
-	 }
+    }
 
     @And("^Click back to login button$")
     public void clickBackToLoginButton() {
-	     lp.clickBackToLoginButton();
+        lp.clickBackToLoginButton();
 
     }
 

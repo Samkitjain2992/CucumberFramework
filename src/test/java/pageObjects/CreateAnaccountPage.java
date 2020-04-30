@@ -16,7 +16,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 public class CreateAnaccountPage {
-    ScreenShotHandle screenShotHandle=new ScreenShotHandle();
+    ScreenShotHandle screenShotHandle = new ScreenShotHandle();
 
     public CreateAnaccountPage() {
 
@@ -32,7 +32,7 @@ public class CreateAnaccountPage {
     @FindBy(xpath = "//input[@id='customer_firstname']")
     WebElement textFirstName;
 
-    @FindBy(id = "submitAccount")
+    @FindBy(xpath = "//*[contains(text(),'Register')]")
     WebElement buttonRegister;
 
     @FindBy(xpath = "//div[@class='alert alert-danger']/ol/li[3]")
@@ -53,7 +53,7 @@ public class CreateAnaccountPage {
     @FindBy(xpath = "//div[@class='alert alert-danger']/ol/li[4]")
     WebElement errorMessageForInvalidEmailID;
 
-    @FindBy(xpath = "//span[@class='form_info']")
+    @FindBy(xpath = "//*[contains(text(),'(Five characters minimum)')]")
     WebElement informationMessageForPassword;
 
     @FindBy(xpath = "//input[@id='passwd']")
@@ -102,10 +102,6 @@ public class CreateAnaccountPage {
     WebElement mobileNumber;
 
 
-
-
-
-
     public void setTextEmailCreateAnAccount(String email) {
 //        String name="Samkit" + UUID.randomUUID().toString().split("-")[0];
 //        name =name+email;
@@ -117,20 +113,24 @@ public class CreateAnaccountPage {
         buttonCreateAnAccount.click();
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName) throws InterruptedException {
+
+        WaitHelper.WaitForElement(BaseClass.driver,textFirstName,20);
+        Thread.sleep(3000);
         textFirstName.sendKeys(firstName);
     }
 
-    public void clickRegisterButton()  {
-    	//WaitHelper.WaitForElement(BaseClass.driver,buttonRegister,5);
-        JavascriptExecutor js=(JavascriptExecutor)BaseClass.driver;
-        js.executeScript("arguments[0].click()",buttonRegister);
+    public void clickRegisterButton() throws InterruptedException {
+        WaitHelper.WaitForElement(BaseClass.driver,buttonRegister,10);
+        Thread.sleep(3000);
+        JavascriptExecutor js = (JavascriptExecutor) BaseClass.driver;
+        js.executeScript("arguments[0].click()", buttonRegister);
         //buttonRegister.click();
         //screenShotHandle.tackScreenShot(BaseClass.driver,"TestCaseFail");
     }
 
     public String getErrorMessageForFirstName() {
-    	
+
         return errorMessageForFirstName.getText();
     }
 
@@ -154,8 +154,9 @@ public class CreateAnaccountPage {
     public String emailId() throws InterruptedException {
         BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         emailText.click();
-        Thread.sleep(3000);
+        WaitHelper.WaitForElement(BaseClass.driver,emailText,20);
         String value = emailText.getAttribute("value");
+        Thread.sleep(3000);
         return emailText.getAttribute("value");
     }
 
@@ -180,7 +181,9 @@ public class CreateAnaccountPage {
 
     }
 
-    public String getInformationMessagePassword() {
+    public String getInformationMessagePassword() throws InterruptedException {
+        Thread.sleep(3000);
+        WaitHelper.WaitForElement(BaseClass.driver,informationMessageForPassword,10);
         return informationMessageForPassword.getText();
     }
 
@@ -216,7 +219,9 @@ public class CreateAnaccountPage {
 
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws InterruptedException {
+        Thread.sleep(3000);
+        WaitHelper.WaitForElement(BaseClass.driver,textFirstName,10);
         textFirstName.sendKeys(name);
     }
 
@@ -229,28 +234,34 @@ public class CreateAnaccountPage {
             genderMaleButton.click(); // Default
         }
     }
-    public void setAddress(String address){
+
+    public void setAddress(String address) {
         addressBox.sendKeys(address);
     }
-    public void setCity(String city){
+
+    public void setCity(String city) {
         cityBox.sendKeys(city);
     }
-    public void setState(String state){
+
+    public void setState(String state) {
         Select State = new Select(this.state);
         State.selectByValue(state);
     }
-    public void setZipCode(String zipCode){
+
+    public void setZipCode(String zipCode) {
         postCode.sendKeys(zipCode);
     }
 
-    public void setCountry(String country){
-        Select Country=new Select(this.country);
+    public void setCountry(String country) {
+        Select Country = new Select(this.country);
         Country.selectByValue(country);
     }
-    public void setMobileNumber(String mobileNumber){
-       this.mobileNumber.sendKeys(mobileNumber);
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber.sendKeys(mobileNumber);
     }
-    public void setPassword(String password){
+
+    public void setPassword(String password) {
         textPassword.sendKeys(password);
     }
 

@@ -34,12 +34,14 @@ public class RegistrationSD {
     }
 
     @And("^User enter name as \"([^\"]*)\"$")
-    public void userEnterNameFiledAs(String firstName)  {
+    public void userEnterNameFiledAs(String firstName) throws InterruptedException {
+        Thread.sleep(3000);
         cp.setFirstName(firstName);
     }
 
     @And("^Click on Register button$")
-    public void userClickOnRegisterButton() {
+    public void userClickOnRegisterButton() throws InterruptedException {
+        Thread.sleep(3000);
         cp.clickRegisterButton();
     }
 
@@ -69,9 +71,8 @@ public class RegistrationSD {
 
     @And("^Email id should display which enter while registration as \"([^\"]*)\"$")
     public void emailIdShouldDisplayWhichEnterWhileRegistrationAs(String message) throws InterruptedException {
-
-
-       Assert.assertEquals(message,cp.emailId());
+       Thread.sleep(3000);
+        Assert.assertEquals(message,cp.emailId());
     }
 
     @And("^Clear email field on registration page$")
@@ -115,8 +116,9 @@ public class RegistrationSD {
     }
 
     @And("^Information message for password gide line should display is \"([^\"]*)\"$")
-    public void informationMessageForPasswordGideLineShouldDisplayIs(String message)  {
-       Assert.assertTrue(cp.getInformationMessagePassword().contains(message));
+    public void informationMessageForPasswordGideLineShouldDisplayIs(String message) throws InterruptedException {
+       Thread.sleep(3000);
+        Assert.assertTrue(cp.getInformationMessagePassword().contains(message));
 
     }
 
@@ -160,7 +162,7 @@ public class RegistrationSD {
     }
 
     @When("^User enter firstName as \"([^\"]*)\"$")
-    public void userEnterFirstNameAs(String firstName)  {
+    public void userEnterFirstNameAs(String firstName) throws InterruptedException {
         cp.setName(firstName);
 
     }
